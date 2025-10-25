@@ -1,0 +1,15 @@
+{
+  "saved_folder": "%USERPROFILE%\\Documents\\JARVIS_TailoredResumes",
+  "adzuna_app_id": "",
+  "adzuna_api_key": "",
+  "openai_api_key": "",
+  "search_interval_minutes": 60,
+  "job_query": "software engineer, backend, python",
+  "location": "Canada",
+  "use_openai_embeddings": false,
+  "auto_apply_enabled": false,
+  "rss_feeds": [
+    "https://remoteok.com/remote-jobs.rss",
+    "https://stackoverflow.com/jobs/feed"
+  ]
+}
