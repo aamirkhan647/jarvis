@@ -39,7 +39,7 @@ def load_config():
             "adzuna_api_key": "",
             "openai_api_key": "",
             "search_interval_minutes": 60,
-            "job_query": "software engineer, backend, python",
+            "job_query": "machine learning engineer, llm, python",
             "location": "Canada",
             "use_openai_embeddings": False,
             "auto_apply_enabled": False,
@@ -54,7 +54,8 @@ def load_config():
         try:
             with open(USER_CONFIG_PATH, "r", encoding="utf-8") as f:
                 user_conf = json.load(f)
-        except Exception:
+        except Exception as e:
+            logging.error(f"Error loading user config: {e}")
             user_conf = {}
     # merge: user values override defaults
     merged = defaults.copy()
