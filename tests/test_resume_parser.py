@@ -8,6 +8,10 @@ class TestResumeParser(unittest.TestCase):
         with self.assertRaises(FileNotFoundError):
             extract_text("nonexistent_file.pdf")
 
+    def test_extract_pdf(self):
+        extracted_text = extract_text("data/resumes/Aamir_Khan_Resume.pdf")
+        self.assertIn("Aamir M. Khan", extracted_text)
+
 
 if __name__ == "__main__":
     unittest.main()

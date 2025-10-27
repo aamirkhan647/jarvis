@@ -35,8 +35,8 @@ def load_config():
         # fallback default dict
         defaults = {
             "saved_folder": "%USERPROFILE%\\Documents\\JARVIS_TailoredResumes",
-            "adzuna_app_id": "",
-            "adzuna_api_key": "",
+            "adzuna_app_id": "b68674e7",
+            "adzuna_api_key": "942660a8437647763f41a0f2d5f907e5",
             "openai_api_key": "",
             "search_interval_minutes": 60,
             "job_query": "machine learning engineer, llm, python",
