@@ -2,6 +2,7 @@ streamlit
 pydantic
 langchain
 langchain-openai
+langchain-core
 python-dotenv
 scikit-learn
 numpy

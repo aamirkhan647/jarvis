@@ -1,5 +1,5 @@
+from langchain_core.output_parsers import PydanticOutputParser  # <--- CORRECTED IMPORT
 from langchain_openai import ChatOpenAI
-from langchain.output_parsers import PydanticOutputParser
 from config.settings import settings
 
 

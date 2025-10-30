@@ -60,7 +60,7 @@ def test_tailoring_agent_generates_text(mock_job_post, mock_resume_text_high_mat
 def test_validation_agent_returns_ats_score(mock_job_post):
     agent = ValidationAgent()
     mock_tailored_resume = (
-        "This resume is perfect and mentions Python and AWS repeatedly."
+        "Architected and implemented solutions using Python and AWS repeatedly."
     )
 
     result = agent.score_ats(mock_job_post, mock_tailored_resume)
