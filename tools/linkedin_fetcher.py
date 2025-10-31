@@ -1,13 +1,11 @@
 from typing import List
 from models.job_data import JobPost
-import streamlit as st
 
 
 def fetch_jobs(keywords: str, location: str, count: int = 5) -> List[JobPost]:
     """
     MOCK: Simulates calling a LinkedIn scraper or API (Sourcing Agent Tool).
     """
-    st.info(f"MOCK: Searching LinkedIn for '{keywords}' in '{location}'...")
 
     # Mock data relevant to the "AI Engineer" keyword
     mock_jobs = [

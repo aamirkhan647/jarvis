@@ -36,15 +36,29 @@ def test_lightweight_score_empty():
 # --- Test Resume Parser (Mocking File Upload) ---
 
 
-def test_parse_resume_mocked_file():
-    # Mock the Streamlit uploaded file object
-    mock_file = MagicMock()
-    mock_file.read.return_value = b"Name: Alice\nSkills: Python, Go\n"
+def test_parse_resume_txt_file(tmp_path):
+    from tools.resume_parser import parse_resume
 
-    result = parse_resume(mock_file)
-    # Check for basic cleaning (newline removal, stripping)
+    mock_filepath = tmp_path / "mock_resume.txt"
+    file_content = "Name: Alice\nSkills: Python, Go\n"
+
+    with open(mock_filepath, "w", encoding="utf-8") as f:
+        f.write(file_content)
+
+    result = parse_resume(str(mock_filepath))
     assert result == "Name: Alice Skills: Python, Go"
 
 
 def test_parse_resume_none_input():
-    assert parse_resume(None) == ""
+    # Since the new parse_resume expects a path, passing None should return None (or handle error)
+    from tools.resume_parser import parse_resume
+
+    assert parse_resume(None) is None
+
+
+def test_parse_resume_non_existent_file():
+    from tools.resume_parser import parse_resume
+
+    # The function should handle a path that doesn't exist
+    result = parse_resume("/this/path/does/not/exist.txt")
+    assert result is None or "Error" in result  # Depending on final error handling

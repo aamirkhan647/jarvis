@@ -1,10 +1,10 @@
-streamlit
 pydantic
 langchain
 langchain-openai
-langchain-core
 python-dotenv
 scikit-learn
 numpy
+python-docx
+pypdf
 pytest
 pytest-mock

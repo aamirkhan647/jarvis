@@ -1,7 +1,6 @@
 from models.job_data import JobPost, ATSScorecard
 from .base_agent import BaseAgent
 from .prompts.system_prompts import ATS_PERSONA
-import streamlit as st
 
 
 class ValidationAgent(BaseAgent):
@@ -9,7 +8,6 @@ class ValidationAgent(BaseAgent):
         """
         MOCK: Simulates an ATS parsing and scoring the tailored resume.
         """
-        st.info("Running ATS validation check...")
 
         # In production, the LLM uses ATS_PERSONA and is forced into the ATSScorecard schema.
 

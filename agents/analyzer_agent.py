@@ -1,7 +1,6 @@
 from models.job_data import Scorecard, JobPost
 from tools.keyword_matcher import lightweight_score
 from config.settings import settings
-import streamlit as st
 from .base_agent import BaseAgent
 
 
@@ -22,7 +21,6 @@ class AnalyzerAgent(BaseAgent):
         initial_score = int(keyword_sim * 100)
 
         if initial_score < settings.KEYWORD_THRESHOLD * 100:
-            st.warning(f"Low initial match ({initial_score}%). Skipping deep analysis.")
             return Scorecard(
                 relevance_score=initial_score,
                 rationale="Basic keyword similarity was too low. Resume lacks critical domain terms.",
@@ -34,8 +32,6 @@ class AnalyzerAgent(BaseAgent):
         # --- Step 2: Deep LLM Analysis (MOCK) ---
         # If the score is high enough, we assume the LLM would validate and refine it.
         # In a real scenario, the prompt would enforce the Scorecard Pydantic schema.
-
-        st.success(f"High match ({initial_score}%). Simulating deep LLM analysis.")
 
         if job.title == "Agentic AI Engineer":
             return Scorecard(

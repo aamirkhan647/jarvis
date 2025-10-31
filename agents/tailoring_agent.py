@@ -1,7 +1,6 @@
 from models.job_data import JobPost
 from .base_agent import BaseAgent
 from .prompts.system_prompts import TAILOR_PERSONA
-import streamlit as st
 
 
 class TailoringAgent(BaseAgent):
@@ -9,7 +8,6 @@ class TailoringAgent(BaseAgent):
         """
         MOCK: Rewrites the base resume text using the job description keywords.
         """
-        st.info(f"Tailoring resume draft for: {job.title}")
 
         # In production:
         # prompt = f"{TAILOR_PERSONA}\nJOB DESCRIPTION:\n{job.raw_description}\nBASE RESUME:\n{base_resume_text}"

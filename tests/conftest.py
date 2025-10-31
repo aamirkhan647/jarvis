@@ -1,5 +1,20 @@
 import pytest
+
+# from unittest.mock import patch
 from models.job_data import JobPost
+
+# from config.settings import Settings
+
+
+# @pytest.fixture(scope="session", autouse=True)
+# def mock_settings():
+#     """Mocks the application settings to provide a fake API key during testing."""
+#     # Create a mock settings object
+#     mock_config = Settings(OPENAI_API_KEY="MOCK_KEY_FOR_TESTS")
+
+#     # Patch the settings module
+#     with patch("config.settings.settings", mock_config):
+#         yield
 
 
 @pytest.fixture
