@@ -1,5 +1,5 @@
 import tkinter as tk
-from .app_view import JobTailorApp
+from gui.app_view import JobTailorApp
 
 
 def main():
