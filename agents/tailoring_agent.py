@@ -1,6 +1,6 @@
 from models.job_data import JobPost
-from .base_agent import BaseAgent
-from .prompts.system_prompts import TAILOR_PERSONA
+from agents.base_agent import BaseAgent
+from agents.prompts.system_prompts import TAILOR_PERSONA
 
 
 class TailoringAgent(BaseAgent):

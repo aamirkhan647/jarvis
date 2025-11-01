@@ -5,8 +5,8 @@ from gui.app_view import JobTailorApp
 def main():
     """Initializes the Tkinter root and starts the main application loop."""
     root = tk.Tk()
-    root.title("Agentic Job Tailor")
-    root.geometry("1200x800")
+    root.title("JARVIS - Job Application Assistant")
+    root.geometry("1920x1080")
 
     app = JobTailorApp(master=root)
 

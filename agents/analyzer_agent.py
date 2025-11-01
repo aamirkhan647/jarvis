@@ -1,7 +1,7 @@
 from models.job_data import Scorecard, JobPost
 from tools.keyword_matcher import lightweight_score
 from config.settings import settings
-from .base_agent import BaseAgent
+from agents.base_agent import BaseAgent
 
 
 # MOCK IMPLEMENTATION of the LLM call

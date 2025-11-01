@@ -1,5 +1,4 @@
 from typing import List, Tuple
-import streamlit as st
 from models.job_data import JobPost, Scorecard, ATSScorecard
 from tools.linkedin_fetcher import fetch_jobs
 from agents.analyzer_agent import AnalyzerAgent
