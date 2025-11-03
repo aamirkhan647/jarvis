@@ -1,26 +1,24 @@
-from models.job_data import JobPost
-from agents.base_agent import BaseAgent
-from agents.prompts.system_prompts import TAILOR_PERSONA
+"""TailoringAgent: uses tailoring tool to create a tailored resume."""
+
+from .base_agent import BaseAgent
+from agents.tools.tool_registry import get_tool_registry
 
 
 class TailoringAgent(BaseAgent):
-    def tailor_resume(self, job: JobPost, base_resume_text: str) -> str:
-        """
-        MOCK: Rewrites the base resume text using the job description keywords.
-        """
+    def __init__(self, memory=None):
+        tools = get_tool_registry()
+        super().__init__(
+            name="TailoringAgent",
+            tools={
+                "tailor_resume": tools["tailor_resume"],
+                "llm_call": tools["llm_call"],
+            },
+            memory=memory,
+        )
 
-        # In production:
-        # prompt = f"{TAILOR_PERSONA}\nJOB DESCRIPTION:\n{job.raw_description}\nBASE RESUME:\n{base_resume_text}"
-        # tailored_text = self.llm.invoke(prompt).content
-
-        # MOCK the tailored output
-        target_keyword = job.raw_description.split(",")[0].strip()
-
-        tailored_text = f"***TAILORED RESUME DRAFT (FOR {job.company})***\n\n"
-        tailored_text += f"Summary: Highly proficient engineer with specific experience in {target_keyword}, aligning perfectly with {job.company}'s requirements.\n\n"
-        tailored_text += "Experience:\n"
-        tailored_text += f" - Architected and implemented solutions utilizing core principles of {target_keyword} to drive [business outcome].\n"
-        tailored_text += " - Managed cloud infrastructure related to data pipelines (AWS/GCP expertise ensured).\n\n"
-        tailored_text += "(...other sections refined for keyword density...)\n"
-
-        return tailored_text
+    def think_and_act(self, resume, job, company=None, level="moderate"):
+        self.observe(f"Tailoring resume for job {job.get('job_id')}")
+        tailored = self.act(
+            "tailor_resume", resume=resume, job=job, company=company, level=level
+        )
+        return tailored

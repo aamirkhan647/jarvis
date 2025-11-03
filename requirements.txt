@@ -1,10 +1,23 @@
-pydantic
-langchain
-langchain-openai
-python-dotenv
-scikit-learn
-numpy
+# Core dependencies
+# tkinter
+requests
+beautifulsoup4
+lxml
 python-docx
-pypdf
+reportlab
+pandas
+numpy
+scikit-learn
+sentence-transformers
+faiss-cpu
+chroma
+openai
+tiktoken
+
+# Utility & system
+python-dotenv
+cryptography
+loguru
+
+# Testing
 pytest
-pytest-mock

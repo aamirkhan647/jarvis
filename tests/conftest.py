@@ -1,49 +1,11 @@
 import pytest
 
-# from unittest.mock import patch
-from models.job_data import JobPost
 
-# from config.settings import Settings
-
-
-# @pytest.fixture(scope="session", autouse=True)
-# def mock_settings():
-#     """Mocks the application settings to provide a fake API key during testing."""
-#     # Create a mock settings object
-#     mock_config = Settings(OPENAI_API_KEY="MOCK_KEY_FOR_TESTS")
-
-#     # Patch the settings module
-#     with patch("config.settings.settings", mock_config):
-#         yield
+@pytest.fixture
+def sample_resume():
+    return "Jane Doe\nSkills: Python, AI, Data Science\nExperience: Microsoft"
 
 
 @pytest.fixture
-def mock_job_post():
-    """Returns a mock JobPost instance."""
-    return JobPost(
-        title="Senior Python Developer",
-        company="TechCorp",
-        location="Remote",
-        link="http://techcorp.com/job",
-        raw_description="Expert in Python, Django, and AWS. Requires strong machine learning background. 5+ years experience.",
-    )
-
-
-@pytest.fixture
-def mock_resume_text_high_match():
-    """Returns resume text highly relevant to the mock job."""
-    return """
-    John Doe - Software Engineer (7 Years Experience)
-    Skills: Python (Expert), Django, SQL, AWS, Machine Learning.
-    Experience: Developed high-scale Python applications. Led a team.
-    """
-
-
-@pytest.fixture
-def mock_resume_text_low_match():
-    """Returns resume text with low relevance to the mock job."""
-    return """
-    Jane Smith - Marketing Specialist
-    Skills: SEO, CRM, Adobe Suite, Market Analysis.
-    Experience: Managed marketing campaigns for three years.
-    """
+def sample_job():
+    return "Hiring Data Scientist with Python and AI experience"

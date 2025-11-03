@@ -1,19 +1,25 @@
-from langchain_core.output_parsers import PydanticOutputParser  # <--- CORRECTED IMPORT
-from langchain_openai import ChatOpenAI
-from config.settings import settings
+"""Abstract base class for agents."""
+
+from typing import Dict, Any
 
 
 class BaseAgent:
-    """Base class for all agents to handle LLM initialization."""
+    def __init__(self, name: str, tools: Dict[str, Any] = None, memory=None):
+        self.name = name
+        self.tools = tools or {}
+        self.memory = memory
 
-    def __init__(self, model_name: str = "gpt-4-turbo-preview"):
-        if not settings.OPENAI_API_KEY:
-            raise ValueError("OPENAI_API_KEY not found in settings.")
+    def observe(self, event: str):
+        if self.memory:
+            self.memory.add_observation(event)
 
-        self.llm = ChatOpenAI(
-            api_key=settings.OPENAI_API_KEY, model=model_name, temperature=0.2
-        )
+    def think(self, *args, **kwargs):
+        """Produce an internal plan/decision. Override in subclasses."""
+        raise NotImplementedError
 
-    def get_parser(self, pydantic_schema):
-        """Returns a Pydantic output parser instance for structured output."""
-        return PydanticOutputParser(pydantic_object=pydantic_schema)
+    def act(self, tool_name: str, *args, **kwargs):
+        """Invoke a registered tool."""
+        tool = self.tools.get(tool_name)
+        if not tool:
+            raise ValueError(f"Tool {tool_name} not registered for agent {self.name}")
+        return tool(*args, **kwargs)
