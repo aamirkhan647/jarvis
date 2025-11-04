@@ -1,6 +1,6 @@
 """Test simple tools."""
 
-from agents.tools.nlp_tools import extract_keywords
+from tools.nlp_tools import extract_keywords
 
 
 def test_extract_keywords():

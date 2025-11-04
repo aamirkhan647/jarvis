@@ -1,7 +1,7 @@
 """ResearchAgent: gather company info using research tool."""
 
 from .base_agent import BaseAgent
-from agents.tools.tool_registry import get_tool_registry
+from tools.tool_registry import get_tool_registry
 
 
 class ResearchAgent(BaseAgent):

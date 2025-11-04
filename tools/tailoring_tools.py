@@ -1,7 +1,7 @@
 """Tailoring tool: uses LLM stub to produce a tailored resume text."""
 
 from utils.logger import get_logger
-from agents.tools.llm_tools import llm_call
+from tools.llm_tools import llm_call
 
 logger = get_logger(__name__)
 

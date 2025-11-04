@@ -1,9 +1,9 @@
 import pytest
 from unittest.mock import patch
-from agents.tools.research_tools import research_company
+from tools.research_tools import research_company
 
 
-@patch("agents.tools.research_tools.research_company")
+@patch("tools.research_tools.research_company")
 def test_fetch_company_profile(mock_get):
     """
     Simulate fetching company profile info.

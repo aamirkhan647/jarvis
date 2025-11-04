@@ -10,7 +10,7 @@ def test_parse_empty_resume():
 
 
 # import pytest
-# from agents.tools import resume_tools
+# from tools import resume_tools
 
 
 # def test_extract_skills_and_summary():

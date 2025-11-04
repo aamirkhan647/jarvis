@@ -1,7 +1,7 @@
 """ScoringAgent: scores jobs using embedding tools and composite scorer."""
 
 from .base_agent import BaseAgent
-from agents.tools.tool_registry import get_tool_registry
+from tools.tool_registry import get_tool_registry
 
 
 class ScoringAgent(BaseAgent):

@@ -4,7 +4,7 @@ from typing import Dict
 from .rules import reorder_skills_section
 from .diff_utils import compute_diff
 from utils.logger import get_logger
-from agents.tools.llm_tools import llm_call
+from tools.llm_tools import llm_call
 
 logger = get_logger(__name__)
 

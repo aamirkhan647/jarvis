@@ -23,7 +23,7 @@ setup(
         "tiktoken",
         "python-dotenv",
         "cryptography",
-        "loguru"
+        "loguru",
     ],
     python_requires=">=3.9",
 )

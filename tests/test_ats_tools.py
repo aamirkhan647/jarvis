@@ -1,5 +1,5 @@
 import pytest
-from agents.tools.ats_tools import simulate_ats
+from tools.ats_tools import simulate_ats
 
 
 @pytest.mark.parametrize(

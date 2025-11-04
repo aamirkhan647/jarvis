@@ -1,6 +1,6 @@
 """Tool registry exposes functions agents can call."""
 
-from agents.tools import (
+from tools import (
     scraping_tools,
     parsing_tools,
     embedding_tools,
