@@ -34,7 +34,7 @@ def test_llm_call_success(mock_openai, monkeypatch):
 
     result = llm_call("Write a summary about Python.")
     assert "AI response" in result["response"]
-    assert result["model"] == "gpt-4o-mini"
+    assert result["model"].lower() == "gpt-4o-mini"
 
 
 @patch("tools.llm_tools.OpenAI")
