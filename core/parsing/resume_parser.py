@@ -10,7 +10,7 @@ from pypdf import PdfReader, errors as pypdf_errors
 logger = get_logger(__name__)
 
 
-def parse_resume_text(filepath: str) -> Dict:
+def parse_resume(filepath: str) -> Dict:
     """
     Parses a resume file from a path (TXT, DOCX, PDF) into clean text.
     Returns the clean text string or an error message string.

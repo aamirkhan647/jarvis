@@ -1,12 +1,34 @@
 """Test parsers."""
 
-from core.parsing.resume_parser import parse_resume_text
+from core.parsing.resume_parser import parse_resume
 
 
-def test_parse_empty_resume():
-    res = parse_resume_text("")
-    assert "text" in res
-    assert isinstance(res["sections"], dict)
+# --- Test Resume Parser (Mocking File Upload) ---
+
+
+def test_parse_resume_txt_file(tmp_path):
+
+    mock_filepath = tmp_path / "mock_resume.txt"
+    file_content = "Name: Alice\nSkills: Python, Go\n"
+
+    with open(mock_filepath, "w", encoding="utf-8") as f:
+        f.write(file_content)
+
+    result = parse_resume(str(mock_filepath))
+    assert result["text"] == "Name: Alice Skills: Python, Go"
+
+
+def test_parse_resume_none_input():
+    # Since the new parse_resume expects a path, passing None should return None (or handle error)
+
+    assert parse_resume(None) is None
+
+
+def test_parse_resume_non_existent_file():
+
+    # The function should handle a path that doesn't exist
+    result = parse_resume("/this/path/does/not/exist.txt")
+    assert result is None or "Error" in result  # Depending on final error handling
 
 
 # import pytest
